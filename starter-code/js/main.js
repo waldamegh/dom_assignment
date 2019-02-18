@@ -3,21 +3,24 @@
     
 */
 $(document).ready(function () {
+    var is_12 = true;
     //set clock time
     setInterval(function () { digitalClock() }, 1000);
     $(".format24").hide();
 
-    //change digit clock format to 24H
-    $("#btn_24").click(function () {
-        $(".format12").hide();
-        $(".format24").show();
-
-    });
     //change digit clock format to 12H
-    $("#btn_12").click(function () {
-        $(".format24").hide();
-        $(".format12").show();
-        //setInterval(function () { digitalClock(true) }, 1000);
+    $("#btn").click(function () {
+        if (is_12) {
+            $(".format12").hide();
+            $(".format24").show();
+            is_12 = false;
+        }else{
+            $(".format24").hide();
+            $(".format12").show();
+            is_12 = true;
+        }
+
+
     });
 
 
